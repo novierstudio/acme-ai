@@ -1,0 +1,3 @@
+/* Shared reset only. Each variant scopes its own tokens and rules under its root class. */
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }

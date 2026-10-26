@@ -1,0 +1,105 @@
+/* Variant A — Ledger: warm paper, serif display, one vermilion signal. Scoped to .ledger. */
+.ledger {
+  --paper: #f5efe4;
+  --paper-deep: #ece4d3;
+  --ink: #1c1a16;
+  --muted: #5c564b;
+  --rule: #d8cfbd;
+  --accent: #b4401f;      /* button fill, white text */
+  --accent-ink: #9c3416;  /* accent used as text on paper */
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --pad: 24px;            /* card padding; inner radius = outer − pad */
+  --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.6 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ledger *, .ledger *::before, .ledger *::after { box-sizing: border-box; }
+.ledger img, .ledger svg { display: block; max-width: 100%; }
+.ledger a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: from-font; }
+.ledger :focus-visible { outline: 3px solid var(--accent-ink); outline-offset: 3px; border-radius: 4px; }
+
+.ledger .wrap { width: min(100% - 2 * 24px, 1080px); margin-inline: auto; }
+.ledger .skip-link { position: absolute; inset-inline-start: 16px; top: -100px; background: var(--ink); color: var(--paper); padding: 10px 14px; border-radius: var(--radius-md); z-index: 10; }
+.ledger .skip-link:focus { top: 16px; }
+
+.ledger .site-header { border-block-end: 1px solid var(--rule); }
+.ledger .bar { display: flex; align-items: center; gap: 24px; min-height: 72px; flex-wrap: wrap; padding-block: 12px; }
+.ledger .wordmark { font: 600 1.25rem/1 var(--serif); text-decoration: none; margin-inline-end: auto; }
+.ledger .nav-list { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+.ledger .nav-list a { text-decoration: none; color: var(--muted); padding-block: 12px; display: inline-block; }
+.ledger .nav-list a:hover { color: var(--ink); }
+
+.ledger .button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 10px 20px;
+  border: 0; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  font: 600 1rem/1 var(--sans); text-decoration: none; cursor: pointer;
+  transition: transform 160ms ease-out, background-color 160ms ease-out;
+}
+.ledger .button:hover { background: var(--accent-ink); }
+.ledger .button:active { transform: scale(0.96); }
+.ledger .button-small { min-height: 40px; padding-inline: 16px; }
+.ledger .text-link { min-height: 44px; display: inline-flex; align-items: center; color: var(--accent-ink); font-weight: 600; }
+
+.ledger .eyebrow { font: 600 0.8125rem/1.4 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); margin: 0 0 12px; }
+
+.ledger .hero { padding-block: clamp(56px, 10vw, 120px) 48px; max-width: 880px; }
+.ledger .hero h1 { font: 500 clamp(2.5rem, 6vw, 4.75rem)/1.05 var(--serif); letter-spacing: -0.02em; margin: 0 0 24px; text-wrap: balance; }
+.ledger .lede { font-size: clamp(1.125rem, 2vw, 1.3rem); color: var(--muted); max-width: 60ch; margin: 0 0 32px; text-wrap: pretty; }
+.ledger .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+.ledger .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin: 0; border-block: 1px solid var(--rule); }
+.ledger .facts > div { padding: 20px 20px 20px 0; }
+.ledger .facts dt { font: 600 0.8125rem/1.4 var(--sans); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.ledger .facts dd { margin: 4px 0 0; font: 500 1.0625rem/1.4 var(--serif); }
+
+.ledger .section { padding-block: clamp(64px, 9vw, 112px); }
+.ledger .section-head h2, .ledger .section h2, .ledger .closing h2 { font: 500 clamp(2rem, 4vw, 2.75rem)/1.15 var(--serif); letter-spacing: -0.01em; margin: 0 0 40px; text-wrap: balance; }
+
+.ledger .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.ledger .card { background: var(--paper-deep); border-radius: var(--radius-lg); padding: var(--pad); position: relative; }
+.ledger .card h3 { font: 600 1.25rem/1.3 var(--serif); margin: 8px 0 8px; }
+.ledger .card p { margin: 0; color: var(--muted); text-wrap: pretty; }
+.ledger .step-no { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--ink); font: 600 0.9375rem/1 var(--sans); }
+
+.ledger .quote { margin: 0; max-width: 780px; }
+.ledger .quote blockquote { margin: 0 0 16px; }
+.ledger .quote blockquote p { font: 400 clamp(1.5rem, 3vw, 2.25rem)/1.3 var(--serif); margin: 0; text-wrap: balance; }
+.ledger .quote figcaption { color: var(--muted); font-size: 0.9375rem; }
+
+.ledger .faq { max-width: 760px; border-block-start: 1px solid var(--rule); }
+.ledger .faq details { border-block-end: 1px solid var(--rule); padding-block: 4px; }
+.ledger .faq summary { cursor: pointer; min-height: 52px; display: flex; align-items: center; font: 600 1.125rem/1.4 var(--serif); list-style: none; }
+.ledger .faq summary::-webkit-details-marker { display: none; }
+.ledger .faq summary::after { content: "+"; margin-inline-start: auto; font: 400 1.5rem/1 var(--sans); color: var(--accent-ink); transition: transform 200ms ease-out; }
+.ledger .faq details[open] summary::after { transform: rotate(45deg); }
+.ledger .faq details p { margin: 0 0 16px; color: var(--muted); max-width: 60ch; }
+
+.ledger .closing { border-block-start: 1px solid var(--rule); }
+.ledger .signup { max-width: 640px; }
+.ledger .signup label { display: block; font-weight: 600; margin-block-end: 8px; }
+.ledger .field-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.ledger .field-row input {
+  flex: 1 1 260px; min-height: 48px; padding: 10px 16px;
+  border: 1px solid var(--ink); border-radius: 999px;
+  background: #fffdf8; color: var(--ink); font: 400 1rem/1.4 var(--sans);
+}
+.ledger .field-row input::placeholder { color: #6e675b; }
+.ledger .hint { color: var(--muted); font-size: 0.9375rem; margin: 12px 0 0; }
+
+.ledger .site-footer { border-block-start: 1px solid var(--rule); padding-block: 32px; }
+.ledger .foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.9375rem; }
+.ledger .foot p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger *, .ledger *::before, .ledger *::after { transition: none !important; scroll-behavior: auto !important; }
+}
